@@ -6,9 +6,9 @@
 </h3>
 
 <p align="center">
-	<a href="https://github.com/zhijun-dai/dsh-Catppuccin/stargazers"><img src="https://img.shields.io/github/stars/zhijun-dai/dsh-Catppuccin?colorA=363a4f&colorB=b7bdf8&style=for-the-badge"></a>
-	<a href="https://github.com/zhijun-dai/dsh-Catppuccin/issues"><img src="https://img.shields.io/github/issues/zhijun-dai/dsh-Catppuccin?colorA=363a4f&colorB=f5a97f&style=for-the-badge"></a>
-	<a href="https://github.com/zhijun-dai/dsh-Catppuccin/contributors"><img src="https://img.shields.io/github/contributors/zhijun-dai/dsh-Catppuccin?colorA=363a4f&colorB=a6da95&style=for-the-badge"></a>
+	<a href="https://github.com/zhijun-dai/Catppuccin-dsh-theme/stargazers"><img src="https://img.shields.io/github/stars/zhijun-dai/Catppuccin-dsh-theme?colorA=363a4f&colorB=b7bdf8&style=for-the-badge"></a>
+	<a href="https://github.com/zhijun-dai/Catppuccin-dsh-theme/issues"><img src="https://img.shields.io/github/issues/zhijun-dai/Catppuccin-dsh-theme?colorA=363a4f&colorB=f5a97f&style=for-the-badge"></a>
+	<a href="https://github.com/zhijun-dai/Catppuccin-dsh-theme/contributors"><img src="https://img.shields.io/github/contributors/zhijun-dai/Catppuccin-dsh-theme?colorA=363a4f&colorB=a6da95&style=for-the-badge"></a>
 </p>
 
 <p align="center">
@@ -46,7 +46,7 @@ Catppuccin**.
 From a GitHub repository:
 
 ```sh
-dsh plugin --profile web add github:zhijun-dai/dsh-Catppuccin
+dsh plugin --profile web add github:zhijun-dai/Catppuccin-dsh-theme
 ```
 
 From a local checkout (the `-w` flag is required — the profile directory is a
@@ -105,5 +105,5 @@ node scripts/gen-themes.mjs
 </p>
 
 <p align="center">
-	<a href="https://github.com/zhijun-dai/dsh-Catppuccin/blob/main/LICENSE"><img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=License&message=MIT&logoColor=d9e0ee&colorA=363a4f&colorB=b7bdf8"/></a>
+	<a href="https://github.com/zhijun-dai/Catppuccin-dsh-theme/blob/main/LICENSE"><img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=License&message=MIT&logoColor=d9e0ee&colorA=363a4f&colorB=b7bdf8"/></a>
 </p>
