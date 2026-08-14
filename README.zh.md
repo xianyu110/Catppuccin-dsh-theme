@@ -12,14 +12,14 @@
 </p>
 
 <p align="center">
-	<a href="README.md">中文</a> | English
+	<a href="README.md">English</a> | 中文
 </p>
 
 <p align="center">
 	<img src="assets/preview.webp"/>
 </p>
 
-## Previews
+## 预览
 
 <details>
 <summary>🌻 Latte</summary>
@@ -38,56 +38,43 @@
 <img src="assets/mocha.webp"/>
 </details>
 
-## Usage
+## 使用
 
-This is a dual-face theme plugin for [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness)
-(dsh). It registers the four Catppuccin flavors into the built-in theme
-runtime, so they appear as selectable skins in **Settings → General →
-Catppuccin theme**.
+这是 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness)（dsh）的双面主题插件。它把 Catppuccin 的四个风味（Flavor）注册进内置主题运行时，在 **设置 → 通用 → Catppuccin 主题** 中即可选择。
 
-### Install
+### 安装
 
-From a GitHub repository:
+从 GitHub 仓库安装：
 
 ```sh
 dsh plugin --profile web add github:zhijun-dai/Catppuccin-dsh-theme
 ```
 
-From a local checkout (the `-w` flag is required — the profile directory is a
-pnpm workspace root):
+从本地目录安装（`-w` 参数必需——profile 目录是 pnpm workspace 根）：
 
 ```sh
 dsh plugin --profile web add -w /path/to/Catppuccin-dsh-theme
 ```
 
-From npm:
+从 npm 安装：
 
 ```sh
 dsh plugin --profile web add dsh-catppuccin
 ```
 
-Restart the web server afterwards:
+安装后重启 web 服务：
 
 ```sh
 dsh web
 ```
 
-### Switch themes
+### 切换主题
 
-Open the web UI, go to **Settings → General**, and pick one of the four
-Catppuccin flavors (or **Default** to follow the built-in appearance). The
-choice is stored per-browser in `localStorage`.
+打开 Web UI，进入 **设置 → 通用**，选择四个 Catppuccin 风味之一（选「默认」恢复内置外观）。选择按浏览器保存在 `localStorage`。
 
-## How it works
+## 工作原理
 
-The theme definitions are generated from the official
-[catppuccin/palette](https://github.com/catppuccin/palette) `palette.json`
-(never hand-edited). `scripts/gen-themes.mjs` maps the 26 Catppuccin colors per
-flavor onto the `--dsw-alias-*` token directory from dsh's
-`@deepseek-ai/dsh-client-ui-theme` stylesheets (including the `--shiki-*`
-syntax palette and the leaked `--dsw-static-deepseek-*` static colors), writes
-the per-flavor token tables to `themes/`, and embeds them into the browser
-bundle `lib/client.js`.
+主题定义由官方 [catppuccin/palette](https://github.com/catppuccin/palette) 的 `palette.json` 生成（不手改色值）。`scripts/gen-themes.mjs` 把每个风味的 26 个 Catppuccin 颜色映射到 dsh `@deepseek-ai/dsh-client-ui-theme` 样式表的 `--dsw-alias-*` token 目录（含 `--shiki-*` 语法高亮色和少量泄漏的 `--dsw-static-deepseek-*` 静态色），写出 `themes/` 下的逐风味 token 表，并内嵌进浏览器端 bundle `lib/client.js`。
 
 ```sh
 node scripts/gen-themes.mjs
@@ -97,7 +84,7 @@ node scripts/gen-themes.mjs
 
 - [zhijun-dai](https://github.com/zhijun-dai)
 - [Catppuccin](https://github.com/catppuccin)
-- [KinGao294/dsh-skin](https://github.com/KinGao294/dsh-skin) — the reference theme plugin this port is modeled on
+- [KinGao294/dsh-skin](https://github.com/KinGao294/dsh-skin) — 本插件的参考实现
 - [DeepSeek](https://github.com/deepseek-ai)
 
 &nbsp;
