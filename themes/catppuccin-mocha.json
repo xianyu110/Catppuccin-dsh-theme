@@ -3,6 +3,8 @@
   "name": "Mocha",
   "colorScheme": "dark",
   "tokens": {
+    "--dsw-static-deepseek-500": "#cba6f7",
+    "--dsw-static-deepseek-200": "#b4befe",
     "--dsw-alias-bg-base": "#1e1e2e",
     "--dsw-alias-bg-layer-1": "#181825",
     "--dsw-alias-bg-layer-2": "#313244",

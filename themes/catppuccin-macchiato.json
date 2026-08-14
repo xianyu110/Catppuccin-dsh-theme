@@ -3,6 +3,8 @@
   "name": "Macchiato",
   "colorScheme": "dark",
   "tokens": {
+    "--dsw-static-deepseek-500": "#c6a0f6",
+    "--dsw-static-deepseek-200": "#b7bdf8",
     "--dsw-alias-bg-base": "#24273a",
     "--dsw-alias-bg-layer-1": "#1e2030",
     "--dsw-alias-bg-layer-2": "#363a4f",

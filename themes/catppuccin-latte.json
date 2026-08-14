@@ -3,6 +3,8 @@
   "name": "Latte",
   "colorScheme": "light",
   "tokens": {
+    "--dsw-static-deepseek-500": "#8839ef",
+    "--dsw-static-deepseek-200": "#7287fd",
     "--dsw-alias-bg-base": "#eff1f5",
     "--dsw-alias-bg-layer-1": "#eff1f5",
     "--dsw-alias-bg-layer-2": "#e6e9ef",

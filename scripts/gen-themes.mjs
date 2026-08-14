@@ -24,6 +24,10 @@ const rgba = (hex, alpha) => `rgba(${hexToRgb(hex).join(', ')}, ${alpha})`
 // roles follow the official design-platform.css alias directory.
 const TOKEN_MAPS = {
   dark: {
+    // static deepseek blues leak into component-level styles (e.g. the
+    // "Deep diving" shimmer); override them so themed UI keeps no default blue
+    '--dsw-static-deepseek-500': 'mauve',
+    '--dsw-static-deepseek-200': 'lavender',
     '--dsw-alias-bg-base': 'base',
     '--dsw-alias-bg-layer-1': 'mantle',
     '--dsw-alias-bg-layer-2': 'surface0',
@@ -108,6 +112,8 @@ const TOKEN_MAPS = {
     '--shiki-token-link': 'rosewater',
   },
   light: {
+    '--dsw-static-deepseek-500': 'mauve',
+    '--dsw-static-deepseek-200': 'lavender',
     '--dsw-alias-bg-base': 'base',
     '--dsw-alias-bg-layer-1': 'base',
     '--dsw-alias-bg-layer-2': 'mantle',
