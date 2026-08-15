@@ -4,6 +4,8 @@
   "colorScheme": "dark",
   "tokens": {
     "--dsw-static-deepseek-500": "#ca9ee6",
+    "--dsw-static-deepseek-400": "#ca9ee6",
+    "--dsw-static-deepseek-450": "#ca9ee6",
     "--dsw-static-deepseek-200": "#babbf1",
     "--dsw-static-blue-450": "#ca9ee6",
     "--dsw-static-blue-500": "#ca9ee6",

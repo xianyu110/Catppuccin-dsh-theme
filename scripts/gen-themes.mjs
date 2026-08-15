@@ -35,6 +35,8 @@ const TOKEN_MAPS = {
     // shimmer, session meters, trajectory labels); override them so themed UI
     // keeps no default blue
     '--dsw-static-deepseek-500': 'mauve',
+    '--dsw-static-deepseek-400': 'mauve',
+    '--dsw-static-deepseek-450': 'mauve',
     '--dsw-static-deepseek-200': 'lavender',
     '--dsw-static-blue-450': 'mauve',
     '--dsw-static-blue-500': 'mauve',
@@ -124,6 +126,8 @@ const TOKEN_MAPS = {
   },
   light: {
     '--dsw-static-deepseek-500': 'mauve',
+    '--dsw-static-deepseek-400': 'mauve',
+    '--dsw-static-deepseek-450': 'mauve',
     '--dsw-static-deepseek-200': 'lavender',
     '--dsw-static-blue-450': 'mauve',
     '--dsw-static-blue-500': 'mauve',
