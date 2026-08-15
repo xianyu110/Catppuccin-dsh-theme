@@ -77,7 +77,7 @@
     "--dsw-specific-menu": "#414559",
     "--dsw-specific-selector": "#51576d",
     "--dsw-specific-tip": "#414559",
-    "--dsw-alias-separator-primary": "rgba(202, 158, 230, 0.5)",
+    "--dsw-alias-separator-primary": "rgba(202, 158, 230, 0.8)",
     "--dsw-alias-scrollbar-bg-l1": "#414559",
     "--dsw-alias-scrollbar-bg-l2": "#51576d",
     "--dsw-alias-scrollbar-hover-l1": "#626880",
