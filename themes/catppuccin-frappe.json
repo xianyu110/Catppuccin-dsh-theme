@@ -143,7 +143,7 @@
     "--dsw-specific-sidebar-nav-item-active": "#51576d",
     "--dsw-specific-sidebar-nav-item-active-accent": "rgba(202, 158, 230, 0.25)",
     "--dsw-specific-sidebar-nav-item-hover": "#414559",
-    "--dsw-specific-bubble": "#51576d",
+    "--dsw-specific-bubble": "#626880",
     "--dsw-specific-bubble-highlight": "#626880",
     "--dsw-specific-input-major": "#292c3c",
     "--dsw-specific-login-input": "#292c3c",
