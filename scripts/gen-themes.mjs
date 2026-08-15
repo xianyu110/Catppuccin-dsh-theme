@@ -24,10 +24,14 @@ const rgba = (hex, alpha) => `rgba(${hexToRgb(hex).join(', ')}, ${alpha})`
 // roles follow the official design-platform.css alias directory.
 const TOKEN_MAPS = {
   dark: {
-    // static deepseek blues leak into component-level styles (e.g. the
-    // "Deep diving" shimmer); override them so themed UI keeps no default blue
+    // static colors leak into component-level styles (the "Deep diving"
+    // shimmer, session meters, trajectory labels); override them so themed UI
+    // keeps no default blue
     '--dsw-static-deepseek-500': 'mauve',
     '--dsw-static-deepseek-200': 'lavender',
+    '--dsw-static-blue-450': 'mauve',
+    '--dsw-static-blue-500': 'mauve',
+    '--dsw-static-neutral-bluish-400': 'overlay1',
     '--dsw-alias-bg-base': 'base',
     '--dsw-alias-bg-layer-1': 'mantle',
     '--dsw-alias-bg-layer-2': 'surface0',
@@ -114,6 +118,9 @@ const TOKEN_MAPS = {
   light: {
     '--dsw-static-deepseek-500': 'mauve',
     '--dsw-static-deepseek-200': 'lavender',
+    '--dsw-static-blue-450': 'mauve',
+    '--dsw-static-blue-500': 'mauve',
+    '--dsw-static-neutral-bluish-400': 'overlay0',
     '--dsw-alias-bg-base': 'base',
     '--dsw-alias-bg-layer-1': 'base',
     '--dsw-alias-bg-layer-2': 'mantle',

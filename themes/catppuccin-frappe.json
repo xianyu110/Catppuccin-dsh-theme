@@ -5,6 +5,9 @@
   "tokens": {
     "--dsw-static-deepseek-500": "#ca9ee6",
     "--dsw-static-deepseek-200": "#babbf1",
+    "--dsw-static-blue-450": "#ca9ee6",
+    "--dsw-static-blue-500": "#ca9ee6",
+    "--dsw-static-neutral-bluish-400": "#838ba7",
     "--dsw-alias-bg-base": "#303446",
     "--dsw-alias-bg-layer-1": "#292c3c",
     "--dsw-alias-bg-layer-2": "#414559",
