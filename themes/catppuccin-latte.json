@@ -83,6 +83,7 @@
     "--dsw-static-amber-500": "#fe640b",
     "--dsw-static-amber-600": "#fe640b",
     "--dsw-static-amber-900": "color-mix(in srgb, #fe640b 40%, #4c4f69)",
+    "--dsw-ctp-sky": "#04a5e5",
     "--dsw-alias-bg-base": "#eff1f5",
     "--dsw-alias-bg-layer-1": "#eff1f5",
     "--dsw-alias-bg-layer-2": "#e6e9ef",

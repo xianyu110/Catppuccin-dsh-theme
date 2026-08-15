@@ -36,6 +36,7 @@ const TOKEN_MAPS = {
     // generated from STATIC_LADDERS below. Everything else maps by alias.
     '--dsw-static-blue-450': 'mauve',
     '--dsw-static-blue-500': 'mauve',
+    '--dsw-ctp-sky': 'sky',
     '--dsw-alias-bg-base': 'base',
     '--dsw-alias-bg-layer-1': 'mantle',
     '--dsw-alias-bg-layer-2': 'surface0',
@@ -141,6 +142,7 @@ const TOKEN_MAPS = {
   light: {
     '--dsw-static-blue-450': 'mauve',
     '--dsw-static-blue-500': 'mauve',
+    '--dsw-ctp-sky': 'sky',
     '--dsw-alias-bg-base': 'base',
     '--dsw-alias-bg-layer-1': 'base',
     '--dsw-alias-bg-layer-2': 'mantle',
