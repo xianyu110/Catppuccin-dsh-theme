@@ -18,6 +18,13 @@ const hexToRgb = (hex) => {
 
 const rgba = (hex, alpha) => `rgba(${hexToRgb(hex).join(', ')}, ${alpha})`
 
+const mixHex = (a, b, t) => {
+  const pa = hexToRgb(a)
+  const pb = hexToRgb(b)
+  const c = pa.map((v, i) => Math.round(v + (pb[i] - v) * t))
+  return `#${c.map((v) => v.toString(16).padStart(2, '0')).join('')}`
+}
+
 // Catppuccin color -> --dsw-alias-* token mapping. Entries are either a color
 // name or { color, alpha } for translucent roles. light covers latte; dark
 // covers frappe/macchiato/mocha (surface order flips between the two). Token
@@ -92,8 +99,8 @@ const TOKEN_MAPS = {
     '--dsw-specific-sidebar-nav-item-active': 'surface1',
     '--dsw-specific-sidebar-nav-item-active-accent': { color: 'mauve', alpha: 0.25 },
     '--dsw-specific-sidebar-nav-item-hover': 'surface0',
-    '--dsw-specific-bubble': 'surface0',
-    '--dsw-specific-bubble-highlight': 'surface1',
+    '--dsw-specific-bubble': { mix: ['base', 'mauve'], t: 0.06 },
+    '--dsw-specific-bubble-highlight': { mix: ['base', 'mauve'], t: 0.18 },
     '--dsw-specific-input-major': 'mantle',
     '--dsw-specific-login-input': 'mantle',
     '--dsw-specific-menu': 'surface0',
@@ -181,8 +188,8 @@ const TOKEN_MAPS = {
     '--dsw-specific-sidebar-nav-item-active': 'surface1',
     '--dsw-specific-sidebar-nav-item-active-accent': { color: 'mauve', alpha: 0.2 },
     '--dsw-specific-sidebar-nav-item-hover': 'surface0',
-    '--dsw-specific-bubble': 'mantle',
-    '--dsw-specific-bubble-highlight': 'surface0',
+    '--dsw-specific-bubble': { mix: ['base', 'mauve'], t: 0.05 },
+    '--dsw-specific-bubble-highlight': { mix: ['base', 'mauve'], t: 0.12 },
     '--dsw-specific-input-major': 'base',
     '--dsw-specific-login-input': 'mantle',
     '--dsw-specific-menu': 'mantle',
@@ -216,9 +223,14 @@ const FLAVORS = [
 const buildTokens = (colors, scheme) => {
   const tokens = {}
   for (const [token, mapping] of Object.entries(TOKEN_MAPS[scheme])) {
-    const { color, alpha } = typeof mapping === 'string' ? { color: mapping, alpha: null } : mapping
-    const hex = colors[color].hex
-    tokens[token] = alpha === null ? hex : rgba(hex, alpha)
+    if (typeof mapping === 'string') {
+      tokens[token] = colors[mapping].hex
+    } else if ('mix' in mapping) {
+      const [a, b] = mapping.mix
+      tokens[token] = mixHex(colors[a].hex, colors[b].hex, mapping.t)
+    } else {
+      tokens[token] = rgba(colors[mapping.color].hex, mapping.alpha)
+    }
   }
   return tokens
 }
