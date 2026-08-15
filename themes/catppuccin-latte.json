@@ -86,6 +86,7 @@
     "--dsw-ctp-sky": "#04a5e5",
     "--dsw-ctp-peach": "#fe640b",
     "--dsw-ctp-lavender": "#7287fd",
+    "--dsw-ctp-blue": "#1e66f5",
     "--dsw-alias-bg-base": "#eff1f5",
     "--dsw-alias-bg-layer-1": "#eff1f5",
     "--dsw-alias-bg-layer-2": "#e6e9ef",
