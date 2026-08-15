@@ -38,6 +38,16 @@
 <img src="assets/mocha.webp"/>
 </details>
 
+## 特性
+
+- **完整的 token 覆盖** —— 181 个 token、零重复：静态色阶、全部 alias、specific token 与 shiki 语法色全部主题化，界面不会漏出默认的 DeepSeek 蓝灰。
+- **经典的 mauve 品牌色** —— 品牌色遵循 Catppuccin 传统用 mauve，而不是内置的蓝色。
+- **记住你的选择** —— 所选风味按浏览器持久化在 `localStorage`，启动时自动恢复，即使宿主重新断言自己的偏好。
+- **组件级染色** —— 不止 token：消息气泡、工具调用行、代码块标签、时间戳、首页标题与 hover 状态都用色盘上色，空工作区还有渐变标题。
+- **对默认皮肤零侵入** —— 切回内置外观会逐像素还原，不留任何注入样式。
+- **深浅四风味** —— Latte 与三个深色风味分别调校，每个风味在自己的底色上都协调。
+- **只用色盘颜色** —— 每个值都是 Catppuccin 色盘颜色或色盘内混色，不引入族外色。
+
 ## 使用
 
 这是 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness)（dsh）的双面主题插件。它把 Catppuccin 的四个风味（Flavor）注册进内置主题运行时，在 **设置 → 通用 → Catppuccin 主题** 中即可选择。

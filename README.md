@@ -38,6 +38,27 @@
 <img src="assets/mocha.webp"/>
 </details>
 
+## Features
+
+- **Full token coverage** — 181 tokens with zero duplicates: the static
+  color ladders, every alias, the specific tokens and the shiki syntax
+  colors are all themed, so no default DeepSeek blue-gray leaks through.
+- **Classic mauve brand** — the brand color follows the Catppuccin way:
+  mauve, not the built-in blue.
+- **Your choice is remembered** — the selected flavor persists per browser
+  in `localStorage` and is re-applied at startup, even when the host
+  re-asserts its own preference.
+- **Component-level accents** — beyond tokens, message bubbles, tool-call
+  rows, code block tags, timestamps, the homepage headline and hover states
+  are tinted from the palette, with a gradient headline on the empty
+  workspace.
+- **Zero intrusion on Default** — switching back to the built-in appearance
+  restores it pixel-identical; no injected styles remain.
+- **Four flavors, dark and light** — Latte is tuned separately from the
+  dark flavors, so each flavor looks balanced on its own surface.
+- **Palette-pure** — every value is a Catppuccin palette color or a mix of
+  palette colors; nothing from outside the family.
+
 ## Usage
 
 This is a dual-face theme plugin for [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness)
