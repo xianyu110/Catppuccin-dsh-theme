@@ -31,16 +31,11 @@ const mixHex = (a, b, t) => {
 // roles follow the official design-platform.css alias directory.
 const TOKEN_MAPS = {
   dark: {
-    // static colors leak into component-level styles (the "Deep diving"
-    // shimmer, session meters, trajectory labels); override them so themed UI
-    // keeps no default blue
-    '--dsw-static-deepseek-500': 'mauve',
-    '--dsw-static-deepseek-400': 'mauve',
-    '--dsw-static-deepseek-450': 'mauve',
-    '--dsw-static-deepseek-200': 'lavender',
+    // blue-450/500 stay pinned to mauve (the session meter "messages" chip
+    // and trajectory labels use them); the rest of the static ladder is
+    // generated from STATIC_LADDERS below. Everything else maps by alias.
     '--dsw-static-blue-450': 'mauve',
     '--dsw-static-blue-500': 'mauve',
-    '--dsw-static-neutral-bluish-400': 'overlay1',
     '--dsw-alias-bg-base': 'base',
     '--dsw-alias-bg-layer-1': 'mantle',
     '--dsw-alias-bg-layer-2': 'surface0',
@@ -113,6 +108,24 @@ const TOKEN_MAPS = {
     '--dsw-alias-scrollbar-bg-l2': 'surface1',
     '--dsw-alias-scrollbar-hover-l1': 'surface2',
     '--dsw-alias-scrollbar-hover-l2': 'surface2',
+    '--dsw-alias-bg-mask-photo': 'rgba(0, 0, 0, 0.88)',
+    '--dsw-alias-bg-mask-drop': 'rgba(39, 39, 48, 0.7)',
+    '--dsw-alias-border-inverted': 'rgba(255, 255, 255, 0.06)',
+    '--dsw-alias-border-inverted2': 'rgba(255, 255, 255, 0.08)',
+    '--dsw-alias-border-l2-darkmode-thin': { color: 'overlay1', alpha: 0.3 },
+    '--dsw-alias-brand-primary-invert': 'text',
+    '--dsw-alias-brand-primary-new-colorprimary-new-color': 'mauve',
+    '--dsw-alias-button-contrast-fill': 'text',
+    '--dsw-alias-button-info-fill': 'sapphire',
+    '--dsw-alias-button-info-hover': { mix: ['sapphire', 'base'], t: 0.6 },
+    '--dsw-alias-button-primary-fill': 'mauve',
+    '--dsw-alias-button-tool-bar-fill': { color: 'overlay0', alpha: 0.5 },
+    '--dsw-alias-button-tool-bar-fill-invisible': { color: 'overlay0', alpha: 0.36 },
+    '--dsw-alias-button-tool-bar-hover': { color: 'overlay1', alpha: 0.6 },
+    '--dsw-alias-label-primary-bluish': 'text',
+    '--dsw-alias-label-primary-dimmed': 'subtext0',
+    '--dsw-alias-label-primary-foreground': 'crust',
+    '--dsw-alias-label-primary-inverted': 'surface0',
     '--shiki-foreground': 'text',
     '--shiki-background': 'mantle',
     '--shiki-token-constant': 'peach',
@@ -126,13 +139,8 @@ const TOKEN_MAPS = {
     '--shiki-token-link': 'rosewater',
   },
   light: {
-    '--dsw-static-deepseek-500': 'mauve',
-    '--dsw-static-deepseek-400': 'mauve',
-    '--dsw-static-deepseek-450': 'mauve',
-    '--dsw-static-deepseek-200': 'lavender',
     '--dsw-static-blue-450': 'mauve',
     '--dsw-static-blue-500': 'mauve',
-    '--dsw-static-neutral-bluish-400': 'overlay0',
     '--dsw-alias-bg-base': 'base',
     '--dsw-alias-bg-layer-1': 'base',
     '--dsw-alias-bg-layer-2': 'mantle',
@@ -205,6 +213,24 @@ const TOKEN_MAPS = {
     '--dsw-alias-scrollbar-bg-l2': 'surface1',
     '--dsw-alias-scrollbar-hover-l1': 'surface2',
     '--dsw-alias-scrollbar-hover-l2': 'surface2',
+    '--dsw-alias-bg-mask-photo': 'rgba(0, 0, 0, 0.88)',
+    '--dsw-alias-bg-mask-drop': 'rgba(255, 255, 255, 0.7)',
+    '--dsw-alias-border-inverted': 'rgba(0, 0, 0, 0)',
+    '--dsw-alias-border-inverted2': 'rgba(0, 0, 0, 0)',
+    '--dsw-alias-border-l2-darkmode-thin': { color: 'overlay1', alpha: 0.35 },
+    '--dsw-alias-brand-primary-invert': 'text',
+    '--dsw-alias-brand-primary-new-colorprimary-new-color': 'mauve',
+    '--dsw-alias-button-contrast-fill': 'text',
+    '--dsw-alias-button-info-fill': 'sapphire',
+    '--dsw-alias-button-info-hover': { mix: ['sapphire', 'base'], t: 0.6 },
+    '--dsw-alias-button-primary-fill': 'mauve',
+    '--dsw-alias-button-tool-bar-fill': { color: 'overlay1', alpha: 0.5 },
+    '--dsw-alias-button-tool-bar-fill-invisible': { color: 'overlay1', alpha: 0.36 },
+    '--dsw-alias-button-tool-bar-hover': { color: 'overlay2', alpha: 0.6 },
+    '--dsw-alias-label-primary-bluish': 'text',
+    '--dsw-alias-label-primary-dimmed': 'subtext0',
+    '--dsw-alias-label-primary-foreground': 'base',
+    '--dsw-alias-label-primary-inverted': 'base',
     '--shiki-foreground': 'text',
     '--shiki-background': 'mantle',
     '--shiki-token-constant': 'peach',
@@ -226,11 +252,125 @@ const FLAVORS = [
   { key: 'mocha', id: 'catppuccin-mocha', colorScheme: 'dark' },
 ]
 
+// Static color ladder plans: the official --dsw-static-* steps mapped onto
+// the Catppuccin ramp. `neutral` covers neutral-bluish / neutral (00 =
+// lightest, 1000 = darkest). Functional families map their 500 step to the
+// Catppuccin accent and derive lighter/darker steps by mixing toward the
+// scheme's light text or deep base (never out-of-palette colors). A plain
+// string is a palette color name; [color, against, pct] is color-mix.
+const STATIC_LADDERS = {
+  dark: {
+    // Interpolated so every step is unique (no flattened ladder); the ramp
+    // runs lightest (00) to darkest (1000).
+    neutral: {
+      '00': 'text',
+      '50': ['text', 'subtext1', 50],
+      '60': 'subtext1',
+      '75': ['subtext1', 'subtext0', 50],
+      '100': 'subtext0',
+      '150': ['subtext0', 'overlay2', 50],
+      '200': 'overlay2',
+      '250': ['overlay2', 'overlay1', 50],
+      '300': 'overlay1',
+      '400': ['overlay1', 'overlay0', 50],
+      '500': 'surface2',
+      '550': ['surface2', 'surface1', 50],
+      '600': 'surface1',
+      '700': 'surface0',
+      '750': ['surface0', 'base', 50],
+      '800': ['surface0', 'base', 25],
+      '850': 'base',
+      '875': ['base', 'mantle', 50],
+      '900': 'mantle',
+      '950': ['mantle', 'crust', 50],
+      '1000': 'crust',
+    },
+    deepseek: {
+      '50': ['mauve', 'text', 55], '100': ['mauve', 'text', 35], '200': 'lavender',
+      '300': ['mauve', 'base', 70], '400': 'mauve', '450': 'mauve', '500': 'mauve',
+      '600': ['mauve', 'base', 60], '700-delete': ['mauve', 'base', 45],
+      '800': ['mauve', 'base', 30], '900': ['mauve', 'base', 20],
+    },
+    blue: {
+      '50': ['blue', 'text', 55], '50p': ['blue', 'text', 45], '75': ['blue', 'text', 35],
+      '100': ['blue', 'text', 25], '300': ['blue', 'base', 75], '400': ['blue', 'base', 85],
+      '450': ['blue', 'base', 90], '500': 'blue', '600': ['blue', 'base', 70],
+      '800': ['blue', 'base', 50], '900': ['blue', 'base', 35], '950': ['blue', 'base', 25],
+    },
+    green: { '100': ['green', 'text', 30], '400': ['green', 'base', 75], '500': 'green', '900': ['green', 'base', 35] },
+    red: { '50': ['red', 'text', 40], '100': ['red', 'text', 25], '400': ['red', 'base', 75], '500': 'red', '600': ['red', 'base', 65], '900': ['red', 'base', 35] },
+    amber: { '100': ['yellow', 'text', 30], '400': ['yellow', 'base', 85], '500': 'peach', '600': 'peach', '900': ['peach', 'base', 40] },
+  },
+  light: {
+    neutral: {
+      '00': 'base',
+      '50': ['base', 'mantle', 50],
+      '60': 'mantle',
+      '75': ['mantle', 'surface0', 50],
+      '100': 'surface0',
+      '150': ['surface0', 'surface1', 50],
+      '200': 'surface1',
+      '250': ['surface1', 'surface2', 50],
+      '300': 'surface2',
+      '400': ['surface2', 'overlay0', 50],
+      '500': 'overlay1',
+      '550': ['overlay1', 'overlay2', 50],
+      '600': 'overlay2',
+      '700': ['overlay2', 'subtext0', 50],
+      '750': 'subtext0',
+      '800': ['subtext0', 'subtext1', 50],
+      '850': 'subtext1',
+      '875': ['subtext1', 'text', 50],
+      '900': 'text',
+      '950': 'text',
+      '1000': 'text',
+    },
+    deepseek: {
+      '50': ['mauve', 'base', 60], '100': ['mauve', 'base', 40], '200': 'lavender',
+      '300': ['mauve', 'base', 75], '400': 'mauve', '450': 'mauve', '500': 'mauve',
+      '600': ['mauve', 'text', 65], '700-delete': ['mauve', 'text', 45],
+      '800': ['mauve', 'text', 30], '900': ['mauve', 'text', 18],
+    },
+    blue: {
+      '50': ['blue', 'base', 60], '50p': ['blue', 'base', 48], '75': ['blue', 'base', 38],
+      '100': ['blue', 'base', 28], '300': ['blue', 'base', 78], '400': ['blue', 'base', 88],
+      '450': ['blue', 'base', 92], '500': 'blue', '600': ['blue', 'text', 70],
+      '800': ['blue', 'text', 50], '900': ['blue', 'text', 35], '950': ['blue', 'text', 25],
+    },
+    green: { '100': ['green', 'base', 35], '400': ['green', 'base', 80], '500': 'green', '900': ['green', 'text', 35] },
+    red: { '50': ['red', 'base', 45], '100': ['red', 'base', 28], '400': ['red', 'base', 78], '500': 'red', '600': ['red', 'text', 68], '900': ['red', 'text', 35] },
+    amber: { '100': ['yellow', 'base', 35], '400': ['yellow', 'base', 88], '500': 'peach', '600': 'peach', '900': ['peach', 'text', 40] },
+  },
+}
+
+const buildStaticTokens = (colors, scheme) => {
+  const tokens = {}
+  const ladders = STATIC_LADDERS[scheme]
+  for (const [family, plan] of Object.entries(ladders)) {
+    const names = family === 'neutral' ? ['neutral-bluish', 'neutral'] : [family]
+    for (const [step, value] of Object.entries(plan)) {
+      for (const name of names) {
+        const key = `--dsw-static-${name}-${step}`
+        if (typeof value === 'string') {
+          tokens[key] = colors[value].hex
+        } else {
+          const [color, against, pct] = value
+          tokens[key] = `color-mix(in srgb, ${colors[color].hex} ${pct}%, ${colors[against].hex})`
+        }
+      }
+    }
+  }
+  return tokens
+}
+
 const buildTokens = (colors, scheme) => {
   const tokens = {}
+  // Static ladder first; explicit TOKEN_MAPS entries (e.g. the mauve pins for
+  // blue-450/500) win over generated ladder steps.
+  Object.assign(tokens, buildStaticTokens(colors, scheme))
   for (const [token, mapping] of Object.entries(TOKEN_MAPS[scheme])) {
     if (typeof mapping === 'string') {
-      tokens[token] = colors[mapping].hex
+      tokens[token] = colors[mapping] ? colors[mapping].hex : mapping
     } else if ('mix' in mapping) {
       const [a, b] = mapping.mix
       tokens[token] = mixHex(colors[a].hex, colors[b].hex, mapping.t)
