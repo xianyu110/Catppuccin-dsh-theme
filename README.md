@@ -66,6 +66,9 @@ From npm:
 dsh plugin --profile web add dsh-catppuccin
 ```
 
+> The npm release may lag behind. For the latest version, use the GitHub
+> install method above (a branch can be pinned with `#branch-name`).
+
 Restart the web server afterwards:
 
 ```sh

@@ -62,6 +62,8 @@ dsh plugin --profile web add -w /path/to/Catppuccin-dsh-theme
 dsh plugin --profile web add dsh-catppuccin
 ```
 
+> npm 版本可能滞后，获取最新版请用上面的 GitHub 安装方式（可用 `#分支名` 锁定分支）。
+
 安装后重启 web 服务：
 
 ```sh
