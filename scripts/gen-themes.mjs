@@ -92,9 +92,9 @@ const TOKEN_MAPS = {
     '--dsw-alias-interactive-bg-hover-accent': { color: 'mauve', alpha: 0.14 },
     '--dsw-alias-interactive-bg-hover-danger': { color: 'red', alpha: 0.15 },
     '--dsw-alias-interactive-bg-hover-solid': 'surface1',
-    // code block surface matches the page background (like
-    // catppuccin-vscode's editor): base, not the darker mantle
-    '--dsw-alias-markdown-code-block': 'base',
+    // code block surface one step below the page background, exactly
+    // like catppuccin-vscode's textCodeBlock.background (= mantle)
+    '--dsw-alias-markdown-code-block': 'mantle',
     '--dsw-alias-markdown-code-block-banner': 'surface0',
     '--dsw-alias-markdown-code-segment-selected': 'surface0',
     '--dsw-alias-markdown-code-segment-unselected': 'mantle',
@@ -139,7 +139,7 @@ const TOKEN_MAPS = {
     '--dsw-alias-label-primary-foreground': 'crust',
     '--dsw-alias-label-primary-inverted': 'surface0',
     '--shiki-foreground': 'text',
-    '--shiki-background': 'base',
+    '--shiki-background': 'mantle',
     '--shiki-token-constant': 'peach',
     '--shiki-token-string': 'green',
     // comment/punctuation brightened to match catppuccin-vscode (its
@@ -215,7 +215,7 @@ const TOKEN_MAPS = {
     '--dsw-alias-interactive-bg-hover-accent': { color: 'mauve', alpha: 0.1 },
     '--dsw-alias-interactive-bg-hover-danger': { color: 'red', alpha: 0.05 },
     '--dsw-alias-interactive-bg-hover-solid': 'mantle',
-    '--dsw-alias-markdown-code-block': 'base',
+    '--dsw-alias-markdown-code-block': 'mantle',
     '--dsw-alias-markdown-code-block-banner': 'mantle',
     '--dsw-alias-markdown-code-segment-selected': 'base',
     '--dsw-alias-markdown-code-segment-unselected': 'mantle',
@@ -260,7 +260,7 @@ const TOKEN_MAPS = {
     '--dsw-alias-label-primary-foreground': 'base',
     '--dsw-alias-label-primary-inverted': 'base',
     '--shiki-foreground': 'text',
-    '--shiki-background': 'base',
+    '--shiki-background': 'mantle',
     '--shiki-token-constant': 'peach',
     '--shiki-token-string': 'green',
     '--shiki-token-comment': 'overlay1',
