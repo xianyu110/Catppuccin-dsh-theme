@@ -140,13 +140,19 @@ const TOKEN_MAPS = {
     '--shiki-background': 'mantle',
     '--shiki-token-constant': 'peach',
     '--shiki-token-string': 'green',
-    '--shiki-token-comment': 'overlay1',
+    // comment/punctuation brightened to match catppuccin-vscode (its
+    // comment is overlay2, punctuation inherits text); link goes blue;
+    // the diff trio was completely unmapped before
+    '--shiki-token-comment': 'overlay2',
     '--shiki-token-keyword': 'mauve',
     '--shiki-token-parameter': 'maroon',
     '--shiki-token-function': 'blue',
     '--shiki-token-string-expression': 'green',
-    '--shiki-token-punctuation': 'overlay2',
-    '--shiki-token-link': 'rosewater',
+    '--shiki-token-punctuation': 'subtext0',
+    '--shiki-token-link': 'blue',
+    '--shiki-token-inserted': 'green',
+    '--shiki-token-deleted': 'red',
+    '--shiki-token-changed': 'peach',
   },
   light: {
     '--dsw-static-blue-450': 'mauve',
@@ -255,13 +261,16 @@ const TOKEN_MAPS = {
     '--shiki-background': 'mantle',
     '--shiki-token-constant': 'peach',
     '--shiki-token-string': 'green',
-    '--shiki-token-comment': 'overlay0',
+    '--shiki-token-comment': 'overlay1',
     '--shiki-token-keyword': 'mauve',
     '--shiki-token-parameter': 'maroon',
     '--shiki-token-function': 'blue',
     '--shiki-token-string-expression': 'green',
-    '--shiki-token-punctuation': 'overlay1',
-    '--shiki-token-link': 'rosewater',
+    '--shiki-token-punctuation': 'subtext1',
+    '--shiki-token-link': 'blue',
+    '--shiki-token-inserted': 'green',
+    '--shiki-token-deleted': 'red',
+    '--shiki-token-changed': 'peach',
   },
 }
 

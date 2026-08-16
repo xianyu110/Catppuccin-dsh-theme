@@ -187,12 +187,15 @@
     "--shiki-background": "#292c3c",
     "--shiki-token-constant": "#ef9f76",
     "--shiki-token-string": "#a6d189",
-    "--shiki-token-comment": "#838ba7",
+    "--shiki-token-comment": "#949cbb",
     "--shiki-token-keyword": "#ca9ee6",
     "--shiki-token-parameter": "#ea999c",
     "--shiki-token-function": "#8caaee",
     "--shiki-token-string-expression": "#a6d189",
-    "--shiki-token-punctuation": "#949cbb",
-    "--shiki-token-link": "#f2d5cf"
+    "--shiki-token-punctuation": "#a5adce",
+    "--shiki-token-link": "#8caaee",
+    "--shiki-token-inserted": "#a6d189",
+    "--shiki-token-deleted": "#e78284",
+    "--shiki-token-changed": "#ef9f76"
   }
 }
