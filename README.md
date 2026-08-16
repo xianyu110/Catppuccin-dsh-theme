@@ -40,9 +40,8 @@
 
 ## Features
 
-- **Full token coverage** — 181 tokens with zero duplicates: the static
-  color ladders, every alias, the specific tokens and the shiki syntax
-  colors are all themed, so no default DeepSeek blue-gray leaks through.
+- **Complete, full Catppuccin colors** — every color is a Catppuccin
+  palette color; the default DeepSeek blue-gray never shows through.
 - **Classic mauve brand** — the brand color follows the Catppuccin way:
   mauve, not the built-in blue.
 - **Your choice is remembered** — the selected flavor persists per browser
